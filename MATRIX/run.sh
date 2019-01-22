@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# MATRIX assumes the run.sh script is in a dir called "MATRIX" in the root dir  
-MAIN_DIR=$(dirname "$0")"/.."
-# Point to the jar to run
-JAR=$MAIN_DIR/target/matrix-distance.jar
+# Note: Matrix runs the run.sh script from BASEDIR/MATRIX where BASEDIR is the root dir of the git project.
+# if this changes, the script will break.
+BASEDIR=..
+# Point to directory 
+JAR_DIR=$BASEDIR/target/
 # MATRIX gives the party id of this party as the first argument, but indexes from 0
 PARTY_ID=`expr $1 + 1`
 # MATRIX seems to put the party configurarion here
-PARTIES_FILE=$MAIN_DIR"/parties.conf"
+PARTIES_FILE="parties.conf"
 # Unwrap the MATRIX parties configuration file
 PARTIES_STR="-i $PARTY_ID "
 NUM_LINES=$(wc -l < $PARTIES_FILE)
@@ -24,4 +25,6 @@ shift
 # Handle the fact that MATRIX breaks when configuration arguments include equals sign
 PARAMS=$(echo "$@" | sed 's/%/=/')
 # Run experiment 
-java -jar $JAR $PARTIES_STR $PARAMS > $MAIN_DIR/experiment_log.txt 2>&1
+# Note: this assumes the parameters (i.e., the config) to start with the name of the jar to run 
+# and to take arguments comliant with the FRESCO cmdlineutil
+java -jar $JAR_DIR/$PARAMS $PARTIES_STR > $BASEDIR/experiment_log.txt 2>&1

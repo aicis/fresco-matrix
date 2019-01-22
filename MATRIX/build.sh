@@ -1,8 +1,7 @@
 #!/bin/sh
+#!/usr/bin/env bash
+# Note: Matrix runs the build script from BASEDIR/MATRIX where BASEDIR is the root dir of the git project.
+# if this changes, the script will break.
 BASEDIR=..
 cd $BASEDIR
-if [ -n "$(command -v apt-get)" ] 
-then
-   sudo apt-get update && sudo apt-get install -y openjdk-11-jdk maven
-fi
 mvn clean package -DskipTests

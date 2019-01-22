@@ -14,11 +14,11 @@
       }
     }
   },
-  "executableName": ["MATRIX/run.sh"],
+  "executableName": ["run.sh"],
   "configurations":
   [
-    "-s@spdz@-Dspdz.preprocessingStrategy%DUMMY@-e@SEQUENTIAL_BATCHED",
-    "-s@spdz@-Dspdz.preprocessingStrategy%DUMMY@-e@SEQUENTIAL"
+    "matrix-distance.jar@-s@spdz@-Dspdz.preprocessingStrategy%DUMMY@-e@SEQUENTIAL_BATCHED",
+    "matrix-distance.jar@-s@spdz@-Dspdz.preprocessingStrategy%DUMMY@-e@SEQUENTIAL"
   ],
   "numOfRepetitions":1,
   "numOfInternalRepetitions":10,
