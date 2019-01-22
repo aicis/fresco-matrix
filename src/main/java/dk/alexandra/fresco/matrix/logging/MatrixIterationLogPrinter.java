@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 public class MatrixIterationLogPrinter {
 
   private static Logger log = LoggerFactory.getLogger(MatrixIterationLogPrinter.class);
-  private static final String MATRIX_LOG_DIR = "MATRIX/logs/";
+  private static final String MATRIX_LOG_DIR = "logs/";
   private static final String MATRIX_LOG_EXTENTION = ".log";
   private final String experimentName;
   private final int numberOfParties;
